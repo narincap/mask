@@ -1,11 +1,10 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-prototype-builtins */
-import { aspectRatioOptions } from "@/constant";
 import { type ClassValue, clsx } from "clsx";
 import qs from "qs";
 import { twMerge } from "tailwind-merge";
 
-
+import { aspectRatioOptions } from "@/constant";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -94,7 +93,7 @@ export const debounce = (func: (...args: any[]) => void, delay: number) => {
   };
 };
 
-// GET IMAGE SIZE
+// GE IMAGE SIZE
 export type AspectRatioKey = keyof typeof aspectRatioOptions;
 export const getImageSize = (
   type: string,
