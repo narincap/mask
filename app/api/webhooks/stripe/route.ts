@@ -24,7 +24,7 @@ export async function POST(request: Request) {
   if (eventType === "checkout.session.completed") {
     const { id, amount_total, metadata } = event.data.object;
 
-    const Transaction = {
+    const transaction = {
       stripeId: id,
       amount: amount_total ? amount_total / 100 : 0,
       plan: metadata?.plan || "",
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       createdAt: new Date(),
     };
 
-    const newTransaction = await createTransaction(Transaction);
+    const newTransaction = await createTransaction(transaction);
     
     return NextResponse.json({ message: "OK", transaction: newTransaction });
   }
